@@ -1,0 +1,58 @@
+//This is the base class
+public class HealthProfessional{
+//Variables for this class(instance variable)
+private int ID;
+private String name;
+private String department;
+
+
+// Default constructor which performs nothing
+public HealthProfessional() {
+    }
+
+
+// Constructor for initialization of all instance variables
+public HealthProfessional(int ID, String name, String department) {
+this.ID = ID;
+this.name = name;
+this.department = department;     
+}   
+
+
+// Now for getters and setters
+public int getID() {
+    return ID;
+
+}
+
+public void setID(int ID) {
+    this.ID = ID;
+
+}
+
+
+public String getName() {
+    return name;
+}
+
+public void setName(String name) {
+    this.name = name;
+}
+
+
+public String getdepartment() {
+    return department
+}
+
+public void setdepartment(String department) {
+    this.department = department
+}
+
+
+// Method to print the variablles
+public void printDetails() {
+    System.out.println("ID: " + ID);
+    System.out.println("Name: " + Name);
+    System.out.println("Department: " + department);
+}
+}

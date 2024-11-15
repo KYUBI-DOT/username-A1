@@ -1,0 +1,26 @@
+// Class for dentist extending the HealthProfessional
+
+public class Dentist extends HealthProfessional {
+    //Instance variable
+    private String qualification;
+
+    // Default constructor, does nothing
+    public Dentist () {
+
+    }
+
+//Constructor with parameters
+public Dentist (int ID, String name, String Department, String qualification) {
+    super(ID, name, department); // This calls the parent class constructor
+    this.qualification = qualification;
+}
+
+
+//Method to print details,
+@override
+public void printDetails() {
+    super.printDetails();
+    System.out.println("Qualification: " + qualification);
+    System.out.println("Health Professional Type: Dentist");
+}
+}

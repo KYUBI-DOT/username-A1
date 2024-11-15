@@ -1,0 +1,27 @@
+//This is a child class which extends the HealthProfessional class
+public class GeneralPractitioner extends HealthProfessional {
+// Variable for the GeneralPractitioner class
+private String specialty;
+
+// Default Constructor which performs nothing
+public GeneralPractitioner() {
+
+}
+
+//Constructor to initialize the string varibales
+// This also includes the variables from the base class
+public GeneralPractitioner (int ID, String name, String department, String specialty) {
+    super(id, name, department);// this calls for the paameters from parent class
+    this.specialty = specialty;
+} 
+
+
+// Method to print the GP details
+// This override will include the specialty
+@override
+public void printDetails() {
+    super.printDetails(); // Calls the print details from the parent class
+    System.out.println ("Specialty: " + specialty);
+   
+}
+}

@@ -1,0 +1,90 @@
+import java.util.ArrayList;
+// Main class which runs the programme
+public class AssignmentOne {
+    //To store the appointments
+private static ArrayList<Appointment> appointments = new ArrayList<>();
+
+public static void main(String[] args) {
+GeneralPractitioner gp1 = new GeneralPractitioner(101, "Dr. Shreyadi Chudal", "General Medicine", "Family Health");
+GeneralPractitioner gp2 = new GeneralPractitioner(102, "Dr. Pratik Ghimire", "General Medicine", "Pediatricians");
+GeneralPractitioner gp3 = new GeneralPractitioner(103, "Dr. Samaira Sharma", "General Medcine", "Internal Medicine");
+
+Dentist dentist1 = new Dentist(201, "Dr.Robert", "Dental", "Orthodontist");
+Dentist dentist2 = new Dentist(202, "Dr. Sergio", "Dental", "Endodontist");
+
+//Printing the details of health professionals
+System.out.println("General Practitioners:");
+gp1.printDetails();
+gp2.printDetails();
+gp3.printDetails();
+System.out.println("------------------------------");
+
+System.out.println("Dentist:");
+dentist1.printDetails();
+dentist2.printDetails();
+System.out.println("------------------------------");
+
+
+//Collection of appointment 
+System.out.println("Collection of appointments");
+
+//Create Appointments
+createAppointment("Lionel Messi", "12345", "08:00", gp1);
+createAppointment("Neymar Jr", "23456", "10:00", gp2);
+createAppointment("Luis Suarez", "34567", "14:30", dentist1);
+createAppointment("Andres Iniesta", "45678", "16:00", dentist2)
+
+//Print existing appointments,
+printExistingAppointments();
+System.out.println("------------------------------");
+
+//Cancel an appointment
+cancelBooking("12345");
+printExistingAppointments();
+System.out.println("------------------------------");
+
+}
+
+
+//method to create new appointment and add to the array list
+public static void createAppointment(String patientName, String mobile, String timeslot, HealthProfessional doctor) {
+   Appointment appointment = new Appointment(patientName, mobile, timeslot, doctor);
+   appointments.add(appointment);
+   System.out.println("Appointment created for" + patientName); 
+}
+
+//Method to print all appointments
+public static void printExistingAppointments() {
+  if (appointments.isEmpty()) {
+    System.out.println("No existing appointments.");
+  } 
+  else {
+    for (Appointment appointment : appointments) {
+        appointment.printDetails();
+        System.out.println("------------------------------");
+    }
+  }
+
+}
+// Method to cancel an appointment based on the patient's mobile number
+public static void cancelBooking(String mobile) {
+    Appointment toCancel = null; // To store the appointment to cancel
+
+    // Search for the appointment by mobile number
+    for (Appointment appointment : appointments) {
+        if (appointment.mobile.equals(mobile)) {
+            toCancel = appointment; // Store the appointment to cancel
+            break; // Exit the loop after finding the match
+        }
+    }
+
+    // Check if an appointment was found and cancel it
+    if (toCancel != null) {
+        appointments.remove(toCancel); 
+        System.out.println("Appointment with mobile " + mobile + " cancelled.");
+    } else {
+        System.out.println("No appointment found with mobile: " + mobile); 
+    }
+}
+
+}

@@ -1,0 +1,32 @@
+//This class represents an appointment with a health professional
+
+public class Appointment{
+    //Instance variables
+    private String patientName;
+    private String mobile;
+    private String timeslot;
+    private HealthProfessional doctor;
+
+    //Default Constructor which does nothing
+    public Appointment() {
+
+    }
+//Constructor with parameters 
+public Appointment(String patientName, String mobile, String timeslot, HealthProfessional) {
+
+this.patientName = patientName;
+this.mobile = mobile;
+this. timeslot = timeslot;
+this.doctor = doctor
+}
+
+
+//Method to print details
+public void printAppointmentDetails() {
+    System.out.println("Patient Name: " + patientName);
+    System.out.println("Mobile: " + mobile);
+    System.out.println("Time Slot: " + timeslot);
+    doctor.printDetails(); //Calls the details of the doctor
+}
+
+}
